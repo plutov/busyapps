@@ -8,10 +8,12 @@ The graph is rendered as one XPM bitmap with GitHub's dark contribution colors. 
 
 ```sh
 cd github_graph
-GITHUB_USERNAME=plutov go run .
+cp .env.example .env
+# Set GITHUB_USERNAME and BUSY_BAR_API_TOKEN in .env
+go run .
 ```
 
-The Busy Bar defaults to `http://10.0.4.20`.
+Settings are read exclusively from `.env`; shell environment variables are not used. `.env` is ignored by Git. `BUSY_BAR_URL` defaults to `http://10.0.4.20` when omitted.
 
 ## Settings
 
@@ -22,4 +24,4 @@ The Busy Bar defaults to `http://10.0.4.20`.
 - `BUSY_BAR_Y` bitmap center Y coordinate on the front display, default `8`
 - `BUSY_BAR_PRIORITY` draw priority, default `50`
 
-Use `go run . --dry-run` to print the generated graph to the terminal.
+Use `go run . --dry-run` to print the contribution graph to the terminal with GitHub's contribution colors.
